@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interface development test for Orchard" />
+    <meta name="author" content="Jimbo Quijano" />
+    <title>Development Test</title>
+
+    <!-- Google Fonts: Open Sans -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <!-- Main gallery section -->
+    <section class="wrapper gallery-section" aria-label="Cooking and gallery">
+      <div class="gallery">
+        <div class="images"></div>
+        <div class="content"></div>
+      </div>
+    </section>
+
+    <!-- Cards block section -->
+    <section class="wrapper cards-section" aria-label="Taste the Colours">
+      <div class="content"></div>
+      <div class="three-col items"></div>
+    </section>
+
+    <!-- Scripts -->
+    <script type="module">
+      import { Cards, Gallery, staggerOnView, fadeOnView } from './src/main'
+
+      const gallery = new Gallery('.gallery-section')
+      const cards = new Cards('.cards-section')
+
+      // Fetch and render cards items
+      cards.fetch('http://localhost:3000/api/cards').then((data) => {
+        cards.render(data)
+
+        // Apply staggered animation to each card
+        const cardEls = document.querySelectorAll('.cards-section .card')
+        staggerOnView(cardEls, 0.3)
+      })
+
+      // Fetch and render gallery images
+      gallery.fetch('http://localhost:3000/api/gallery').then((data) => {
+        gallery.render(data)
+
+        // Apply simple fade animation to gallery
+        const galleryImgs = document.querySelectorAll('.gallery-section img')
+        const galleryContent = document.querySelectorAll('.gallery-section .content')
+        staggerOnView(galleryImgs, 0.25)
+        fadeOnView(galleryContent, 0.25)
+      })
+
+      // Logs the card object { image, title, description }
+      // NOTE: I know you guys asked to log the anchor, but I prefer logging
+      // the card object instread as it is more realistic in a real-world usage.
+      cards.onClick((card) => {
+        console.log(card)
+      })
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+{
+  "images": [
+    {
+      "src": "gallery-img1.webp",
+      "large": "gallery-img1-large.webp",
+      "alt": "Close-up of cooked dish 1"
+    },
+    {
+      "src": "gallery-img2.webp",
+      "large": "gallery-img2-large.webp",
+      "alt": "Close-up of cooked dish 2"
+    },
+    {
+      "src": "gallery-img3.webp",
+      "large": "gallery-img3-large.webp",
+      "alt": "Close-up of cooked dish 3"
+    }
+  ],
+  "content": {
+    "title": "What does cooking mean?",
+    "paragraphs": [
+      "Is it simply applying heat to a food product? A way of making certain food safe to eat? Or a way to create flavour and make food more appealing? This is just part of what Hervé This, the father of molecular gastronomy, has dedicated his life to finding out. We spoke to him to find out what his experiments have told him. And in the process even discovered the secret to cooking the perfect egg lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae pellentesque sem placerat. In id cursus mi pretium tellus duis convallis. Tempus leo eu aenean sed diam urna tempor. Pulvinar vivamus fringilla lacus nec metus bibendum egestas. Iaculis massa nisl malesuada lacinia integer nunc posuere. Ut hendrerit semper vel class aptent taciti sociosqu. Ad litora torquent per conubia nostra inceptos himenaeos."
+    ],
+    "highlight": {
+      "title": "THE PERFECT EGG",
+      "text": "Keep water between 67 and 68°C for a flavourful, tender yolk."
+    }
+  }
+}

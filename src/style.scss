@@ -1,0 +1,275 @@
+/* =========================================================
+   Root Theme Variables
+   ========================================================= */
+
+/* Default: Dark Mode */
+:root {
+  --color-bg: #000;
+  --color-text: #fff;
+  --color-accent: #cf1430;
+  --color-overlay: rgba(0, 0, 0, 0.9);
+  --color-border: #fff;
+}
+
+/* Light Mode Override */
+body.light-mode {
+  --color-bg: #fff;
+  --color-text: #111;
+  --color-accent: #b3001b;
+  --color-overlay: rgba(255, 255, 255, 0.9);
+  --color-border: #111;
+}
+
+/* =========================================================
+   Base Typography & Layout
+   ========================================================= */
+
+body {
+  font-family: 'Open Sans', sans-serif;
+  line-height: 1.43;
+  font-style: normal;
+  font-stretch: normal;
+
+  color-scheme: light dark;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   Headings
+   ========================================================= */
+
+h1 {
+  font-size: 30px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin: 0 0 30px;
+  padding-bottom: 29px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h1.center {
+  display: block;
+  text-align: center;
+  width: max-content;
+  margin: 0 auto 30px;
+  border-bottom: 1px solid var(--color-border);
+}
+
+h2 {
+  font-size: 21px;
+  font-weight: bold;
+  line-height: 1.43;
+}
+
+h3 {
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1.4;
+  margin: 0 0 10px;
+}
+
+/* =========================================================
+   Text Elements
+   ========================================================= */
+
+p {
+  font-size: 21px;
+  font-weight: 300;
+  margin: 0 0 30px;
+}
+
+em {
+  color: var(--color-accent);
+  display: inline-block;
+  font-style: normal;
+}
+
+strong {
+  font-weight: bold;
+}
+
+/* =========================================================
+   Layout Containers
+   ========================================================= */
+
+.wrapper {
+  max-width: 1186px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 120px 20px;
+  box-sizing: border-box;
+}
+
+.three-col {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+/* =========================================================
+   Gallery Layout
+   ========================================================= */
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  .images {
+    column-count: 2;
+    column-gap: 10px;
+    flex-grow: 1;
+
+    img {
+      width: 100%;
+      display: block;
+      margin-bottom: 10px;
+    }
+  }
+
+  .content {
+    flex: 1 1 362px;
+  }
+}
+
+/* =========================================================
+   Card Component
+   ========================================================= */
+
+.card {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+  text-align: center;
+
+  img {
+    width: 100%;
+    display: block;
+    object-fit: cover;
+  }
+
+  h1,
+  h2,
+  h3 {
+    margin: 30px 0 0;
+  }
+
+  p {
+    padding: 0 30px;
+    margin: 10px 0 0;
+  }
+}
+
+/* =========================================================
+   Lightbox Styles
+   ========================================================= */
+
+.lightbox {
+  display: none; /* Hidden by default */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--color-overlay);
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  flex-direction: column;
+
+  img.lightbox-img {
+    max-width: 90%;
+    max-height: 80%;
+    margin-bottom: 20px;
+    border-radius: 8px;
+  }
+
+  .lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .lightbox-controls button {
+    background: none;
+    border: none;
+    font-size: 50px;
+    color: var(--color-text);
+    cursor: pointer;
+    margin: 0 20px;
+    transition: color 0.2s;
+  }
+
+  .lightbox-controls button:hover {
+    color: var(--color-accent);
+  }
+}
+
+.lightbox[aria-hidden='false'] {
+  display: flex;
+}
+
+/* =========================================================
+   Responsive Adjustments
+   ========================================================= */
+
+@media (max-width: 1216px) {
+  .gallery {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  .gallery .images {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .three-col {
+    gap: 60px;
+  }
+
+  .three-col .card {
+    max-width: 100%;
+  }
+}
+
+/* =========================================================
+   Animations
+   ========================================================= */
+.stagger-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.stagger-hidden.visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}
+
+.fade-hidden {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.fade-hidden.visible {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.6s ease,
+    transform 0.6s ease;
+}

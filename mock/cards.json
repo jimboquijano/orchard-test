@@ -1,0 +1,25 @@
+{
+  "items": [
+    {
+      "title": "Red",
+      "image": "card-img1.webp",
+      "alt": "Red foods, such as berries and soft fruits",
+      "description": "Red foods remind us of berries and soft fruits, so we anticipate a sweet taste."
+    },
+    {
+      "title": "Green",
+      "image": "card-img2.webp",
+      "alt": "Green foods, fresh and unripe",
+      "description": "Fresh, zingy green colours are reminiscent of unripe fruit, promising sour or acid flavours."
+    },
+    {
+      "title": "White",
+      "image": "card-img3.webp",
+      "alt": "White foods, such as salt or dairy",
+      "description": "White foods evoke memories of salt and salty flavours, driving the expectation of a savoury treat."
+    }
+  ],
+  "content": {
+    "title": "Taste the Colours"
+  }
+}
