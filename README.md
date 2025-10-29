@@ -46,21 +46,13 @@ More importantly, this showcases how one perfectly implements a project from sta
 
 ## 🚀 Dev Usage (For Orchard to TRY)
 
-1. Open a terminal and start the built-in server (for the API mocks):
-
-```bash
-node server.js
-```
-
-2. Open another terminal and start the main application
+1. Open terminal and start the main app.
 
 ```
 npm run dev
 ```
 
-3. Ensure that the server is running at `http://localhost:3000`.
-
-4. Ensure that the app can be opened at `http://localhost:5173`.
+2. All set! You can now open the app.
 
 ---
 
