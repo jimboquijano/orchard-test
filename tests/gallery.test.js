@@ -16,14 +16,14 @@ describe('Gallery', () => {
 
   test('fetch() retrieves gallery mock data', async () => {
     const gallery = new Gallery('.gallery-section')
-    const data = await gallery.fetch('http://localhost:3000/api/gallery')
+    const data = await gallery.fetch('../public/mock/gallery.json')
 
     expect(data.images.length).toBe(2)
   })
 
   test('render() populates images and content', async () => {
     const gallery = new Gallery('.gallery-section')
-    const data = await gallery.fetch('http://localhost:3000/api/gallery')
+    const data = await gallery.fetch('../public/mock/gallery.json')
     gallery.render(data)
 
     expect(document.querySelectorAll('.images a').length).toBe(2)

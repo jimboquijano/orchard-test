@@ -22,7 +22,7 @@ describe('Integration: full page', () => {
 
   test('fetches and renders cards then applies staggerOnView()', async () => {
     const cards = new Cards('.cards-section')
-    const data = await cards.fetch('http://localhost:3000/api/cards')
+    const data = await cards.fetch('../public/mock/cards.json')
 
     cards.render(data)
     const cardEls = document.querySelectorAll('.cards-section .card')
@@ -33,7 +33,7 @@ describe('Integration: full page', () => {
 
   test('fetches and renders gallery then applies fadeOnView()', async () => {
     const gallery = new Gallery('.gallery-section')
-    const data = await gallery.fetch('http://localhost:3000/api/gallery')
+    const data = await gallery.fetch('../public/mock/gallery.json')
 
     gallery.render(data)
     const imgs = document.querySelectorAll('.gallery-section img')

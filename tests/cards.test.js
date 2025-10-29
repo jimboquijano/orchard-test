@@ -16,14 +16,14 @@ describe('Cards', () => {
 
   test('fetch() retrieves mock data', async () => {
     const cards = new Cards('.cards-section')
-    const data = await cards.fetch('http://localhost:3000/api/cards')
+    const data = await cards.fetch('../public/mock/cards.json')
 
     expect(data.items.length).toBe(2)
   })
 
   test('render() populates items and content', async () => {
     const cards = new Cards('.cards-section')
-    const data = await cards.fetch('http://localhost:3000/api/cards')
+    const data = await cards.fetch('../public/mock/cards.json')
     cards.render(data)
 
     expect(document.querySelectorAll('.card').length).toBe(2)
@@ -32,7 +32,7 @@ describe('Cards', () => {
 
   test('onClick() triggers callback with card data', async () => {
     const cards = new Cards('.cards-section')
-    const data = await cards.fetch('http://localhost:3000/api/cards')
+    const data = await cards.fetch('../public/mock/cards.json')
     const mockFn = vi.fn()
 
     cards.onClick(mockFn)
