@@ -1,0 +1,61 @@
+name: Deploy site (index only) to GitHub Pages
+
+on:
+  push:
+    branches: [main] # change if your default branch differs
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # 👇 Build your site (Vite, Rollup, etc.)
+      - name: Build site
+        run: npm run build
+
+      # 👇 Copy only index.html and assets from dist/
+      - name: Prepare deploy folder (index + assets)
+        run: |
+          mkdir public
+          cp dist/index.html public/
+          if [ -d dist/assets ]; then cp -r dist/assets public/assets; fi
+          echo "✅ Copied index.html and assets to public/"
+
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: public
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
