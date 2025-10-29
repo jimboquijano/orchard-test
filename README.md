@@ -8,15 +8,17 @@ More importantly, this showcases how one perfectly implements a project from sta
 
 ## 📁 Project Structure
 
+```text
 /
-├── index.html # Main HTML entry point  
-├── src/  
-│ ├── main.js # Entry module re-exporting components  
-│ ├── cards.js # Cards component – renders a card grid from JSON  
-│ ├── gallery.js # Gallery component – image gallery with lightbox  
-│ ├── lightbox.js # Accessible image viewer with keyboard support  
-│ ├── helpers.js # Shared utility functions (animations, truncation)  
+├── index.html # Main HTML entry point
+├── src/
+│ ├── main.js # Entry module re-exporting components
+│ ├── cards.js # Cards component – renders a card grid from JSON
+│ ├── gallery.js # Gallery component – image gallery with lightbox
+│ ├── lightbox.js # Accessible image viewer with keyboard support
+│ ├── helpers.js # Shared utility functions (animations, truncation)
 │ └── style.scss # Global SCSS styles
+```
 
 ---
 
