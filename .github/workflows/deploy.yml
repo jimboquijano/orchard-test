@@ -39,7 +39,7 @@ jobs:
       # 👇 Copy only index.html and assets from dist/
       - name: Prepare deploy folder (index + assets)
         run: |
-          mkdir public
+          mkdir -p public
           cp dist/index.html public/
           if [ -d dist/assets ]; then cp -r dist/assets public/assets; fi
           echo "✅ Copied index.html and assets to public/"
