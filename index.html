@@ -39,7 +39,7 @@
       const cards = new Cards('.cards-section')
 
       // Fetch and render cards items
-      cards.fetch('http://localhost:3000/api/cards').then((data) => {
+      cards.fetch('./mock/cards.json').then((data) => {
         cards.render(data)
 
         // Apply staggered animation to each card
@@ -48,7 +48,7 @@
       })
 
       // Fetch and render gallery images
-      gallery.fetch('http://localhost:3000/api/gallery').then((data) => {
+      gallery.fetch('./mock/gallery.json').then((data) => {
         gallery.render(data)
 
         // Apply simple fade animation to gallery

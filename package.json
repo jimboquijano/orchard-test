@@ -24,9 +24,5 @@
     "sass-embedded": "^1.93.2",
     "vite": "^7.1.7",
     "vitest": "^4.0.4"
-  },
-  "dependencies": {
-    "cors": "^2.8.5",
-    "express": "^5.1.0"
   }
 }
